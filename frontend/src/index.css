@@ -1,0 +1,44 @@
+/* 1. @import 必须放第一行！ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap'); /* 加个中文字体更像哈佛 */
+
+/* 2. 然后才是 Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. 自定义样式 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 哈佛风字体定义 */
+.font-serif {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif; /* 英文用Playfair，中文用Noto */
+}
+
+/* 隐藏原本丑陋的滑块，完全交给自定义样式 */
+/* 1. 针对 Webkit 浏览器 (Chrome/Edge/Safari) */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* 给它一点宽度，更容易点中 */
+    height: 100%; /* 高度铺满，保证哪里都能拖 */
+    background: transparent; 
+    cursor: ew-resize;
+    /* !!! 绝对不能加 pointer-events: none !!! */
+  }
+  
+  /* 2. 针对 Firefox */
+  input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 100%;
+    background: transparent;
+    cursor: ew-resize;
+    border: none;
+  }
+  
+  /* 3. 去掉点击时的聚焦黑框 */
+  input[type=range]:focus {
+    outline: none;
+  }
