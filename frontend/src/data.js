@@ -90,9 +90,9 @@ export const database = {
         `,
         // 该产业下的商品/助农链接
         products: [
-          { name: "彰武沙地蜜薯", price: "¥29.9 / 5斤", img: "https://images.unsplash.com/photo-1574315042628-66299d91a92e?q=80&w=400", link: "#" },
-          { name: "林下赤松茸", price: "¥58.0 / 斤", img: "https://images.unsplash.com/photo-1550995166-51d2f094c656?q=80&w=400", link: "#" },
-          { name: "有机花生油", price: "¥89.0 / 桶", img: "https://images.unsplash.com/photo-1619864234563-74b886915174?q=80&w=400", link: "#" }
+          { name: "彰武沙地蜜薯", price: "¥29.9 / 5斤", img: "/digua.jpg", link: "#" },
+          { name: "林下赤松茸", price: "¥58.0 / 斤", img: "/songrong.jpg", link: "#" },
+          { name: "有机花生油", price: "¥89.0 / 桶", img: "/you.jpg", link: "#" }
         ]
       },
       {
@@ -201,8 +201,8 @@ export const database = {
           <p>以章古台林场为核心，打造了多条红色研学路线，让游客在游览中感悟“大漠孤烟”变“绿洲新生”的治沙精神。</p>
         `,
         products: [
-          { name: "草原景区门票", price: "¥40.0", img: "https://images.unsplash.com/photo-1533659828570-3692fb4749da?q=80&w=400", link: "#" },
-          { name: "研学团预约", price: "咨询客服", img: "https://images.unsplash.com/photo-1503220317375-aaad6143d41b?q=80&w=400", link: "#" }
+          { name: "草原景区门票", price: "¥40.0", img: "/caoyuanjingqu.jpg", link: "#" },
+          { name: "研学团预约", price: "咨询客服", img: "/yuyue.jpg", link: "#" }
         ]
       }
     ],
