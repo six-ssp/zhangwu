@@ -42,7 +42,7 @@ const Tours = () => {
                     className="absolute w-6 h-6 md:w-8 md:h-8 -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10 group"
                     style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
                     onMouseEnter={() => setActiveSpot(spot.id)} // 鼠标移入显示预览
-                    onClick={() => navigate(`/tours/${spot.id}`)} // 2. 点击直接跳转详情页
+                    onClick={() => navigate(`/activity/study/${spot.id}`)} // 2. 点击直接跳转详情页
                   >
                     <span className="absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75 animate-ping"></span>
                     <span className="relative inline-flex rounded-full h-full w-full bg-red-600 border-2 border-white shadow-lg items-center justify-center text-white transition-transform group-hover:scale-125">
@@ -64,7 +64,7 @@ const Tours = () => {
                        animate={{ opacity: 1, scale: 1, y: 0 }}
                        exit={{ opacity: 0, scale: 0.9, y: 10 }}
                        className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:w-80 md:right-auto bg-white rounded-xl shadow-2xl p-4 z-50 border border-gray-100 cursor-pointer hover:border-green-500 transition-colors"
-                       onClick={() => navigate(`/tours/${activeSpot}`)} // 点击卡片也能跳转
+                       onClick={() => navigate(`/activity/study/${activeSpot}`)} // 点击卡片也能跳转
                     >
                        {(() => {
                          const spot = mapSpots.find(s => s.id === activeSpot);

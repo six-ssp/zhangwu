@@ -10,10 +10,12 @@ import Home from './pages/Home';
 import Spirit from './pages/Spirit';
 import PersonDetail from './pages/PersonDetail';
 import Industry from './pages/Industry';
-import IndustryDetail from './pages/IndustryDetail'; // 别忘了引入这个详情页
+import IndustryDetail from './pages/IndustryDetail'; 
 import Tours from './pages/Tours';
 import TourDetail from './pages/TourDetail';
 import About from './pages/About';
+import Activity from './pages/Activity'; 
+import ActivityDetail from './pages/ActivityDetail'; 
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -56,8 +58,10 @@ function App() {
           <Route path="spirit/people/:id" element={<PersonDetail />} />
           <Route path="industry" element={<Industry />} />
           <Route path="industry/:id" element={<IndustryDetail />} />
-          <Route path="tours" element={<Tours />} />
-          <Route path="tours/:id" element={<TourDetail />} />
+          <Route path="activity" element={<Activity />} />
+          <Route path="activity/study" element={<Tours />} />
+          <Route path="activity/study/:id" element={<TourDetail />} />
+          <Route path="activity/:id" element={<ActivityDetail />} />
           <Route path="about" element={<About />} />
           <Route path="*" element={<div className="pt-32 text-center text-xl">404 - 页面未找到</div>} />
         </Route>

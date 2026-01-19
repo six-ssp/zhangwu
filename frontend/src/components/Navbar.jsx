@@ -36,8 +36,8 @@ const Navbar = () => {
   // 治沙精神菜单
   const spiritMenu = {
     items: [
-      { key: 'history', label: '⏳ 治沙历史', onClick: () => navigate('/spirit?tab=history') },
-      { key: 'people', label: '🏆 杰出代表', onClick: () => navigate('/spirit?tab=people') },
+      { key: 'history', label: ' 治沙历史', onClick: () => navigate('/spirit?tab=history') },
+      { key: 'people', label: ' 杰出代表', onClick: () => navigate('/spirit?tab=people') },
     ]
   };
 
@@ -46,25 +46,32 @@ const Navbar = () => {
     items: [
       { 
         key: 'primary', 
-        label: '🍠 精品农业', 
+        label: ' 精品农业', 
         // 修改：直接跳转到第一产业详情页
         onClick: () => navigate('/industry/primary') 
       },
       { 
         key: 'secondary', 
-        label: '💎 硅砂工业', 
+        label: ' 硅砂工业', 
         // 修改：直接跳转到第二产业详情页 (PPT模式)
         onClick: () => navigate('/industry/secondary') 
       },
       { 
         key: 'tertiary', 
-        label: '🌲 全域旅游', 
+        label: ' 全域旅游', 
         // 修改：直接跳转到第三产业详情页
         onClick: () => navigate('/industry/tertiary') 
       },
     ]
   };
-
+  const activityMenu = {
+    items: [
+      { key: 'study', label: ' 研学活动', onClick: () => navigate('/activity/study') },
+      { key: 'tree', label: ' 一棵树活动', onClick: () => navigate('/activity/tree') },
+      { key: 'show', label: ' 表演预约', onClick: () => navigate('/activity/show') },
+      { key: 'video', label: ' 短视频大赛', onClick: () => navigate('/activity/video') },
+    ]
+  };
   // 辅助函数：判断高亮
   const isActive = (path) => {
     // 如果当前路径包含 path (比如 /industry/secondary 包含 /industry)，就高亮
@@ -84,10 +91,10 @@ const Navbar = () => {
            />
            <div className={`flex flex-col transition-colors duration-300 ${textColor}`}>
              <span className="font-serif font-bold text-lg leading-none tracking-widest group-hover:text-green-600 transition-colors">
-               大连理工大学
+               “瀚海筑梦”实践团
              </span>
              <span className="text-[10px] opacity-80 uppercase tracking-wider mt-1">
-               瀚海筑梦 · 守绿传薪
+               大连理工大学
              </span>
            </div>
         </Link>
@@ -115,9 +122,14 @@ const Navbar = () => {
              </button>
           </Dropdown>
 
-          <Link to="/tours" className={`${linkClass} ${isActive('/tours')}`}>
-            研学路线
-          </Link>
+          <Dropdown menu={activityMenu} placement="bottom" arrow={{ pointAtCenter: true }}>
+             <button 
+                className={`${linkClass} ${isActive('/activity')}`}
+                onClick={() => navigate('/activity')}
+             >
+                彰武活动 <DownOutlined className="text-[10px] opacity-60 ml-1"/>
+             </button>
+          </Dropdown>
 
           <Link to="/about" className={`${linkClass} ${isActive('/about')}`}>
             关于我们

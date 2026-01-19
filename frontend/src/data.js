@@ -297,5 +297,62 @@ export const database = {
           { time: "17:30", activity: "拍摄柳河日落壮美景色" }
         ]
       },
+    ],
+    activities: [
+      {
+        id: "study", // 对应之前的研学路线
+        title: "研学活动 · 探索之旅",
+        subtitle: "Study Tour",
+        summary: "交互式地图导览，探索章古台林场、大冷草原等核心研学基地。",
+        img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000",
+        color: "green",
+        type: "interactive", // 标记这个是特殊交互页
+      },
+      {
+        id: "tree",
+        title: "一棵树 · 认养计划",
+        subtitle: "Adopt A Tree Campaign",
+        summary: "我在彰武有棵树。参与公益认养，为沙漠增添一抹新绿。",
+        img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000",
+        color: "green",
+        content: `
+          <p>“一棵树”公益活动旨在号召社会各界人士参与到彰武的防沙治沙事业中来。</p>
+          <h3>活动意义</h3>
+          <p>每一棵被认养的树，都会挂上认养人的专属铭牌。这不仅是一份爱心的见证，更是对“守绿传薪”精神的传承。</p>
+          <h3>参与方式</h3>
+          <p>个人或团体均可报名。认养费用将全部用于树苗采购与后期管护。您将获得电子认养证书，并定期收到树木成长的照片。</p>
+        `
+      },
+      {
+        id: "show",
+        title: "表演预约 · 民族风情",
+        subtitle: "Cultural Performance Booking",
+        summary: "预约马头琴演奏、蒙古族歌舞，体验浓郁的科尔沁文化。",
+        img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000", // 建议换成舞蹈/乐器图
+        color: "orange",
+        content: `
+          <p>在漠上草原，您可以欣赏到最地道的蒙古族传统艺术表演。</p>
+          <h3>节目单</h3>
+          <p>1. 马头琴独奏《万马奔腾》<br/>2. 蒙古族长调<br/>3. 顶碗舞<br/>4. 篝火晚会互动</p>
+          <h3>预约说明</h3>
+          <p>表演需提前 3 天预约，适合 20 人以上的研学团或旅游团。支持定制化节目编排。</p>
+        `
+      },
+      {
+        id: "video",
+        title: "短视频大赛 · 影像彰武",
+        subtitle: "Short Video Contest",
+        summary: "用镜头记录治沙奇迹，百万流量扶持，赢取丰厚奖金。",
+        img: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000",
+        color: "blue",
+        content: `
+          <p>为庆祝彰武治沙 70 周年，特举办“印象彰武”短视频大赛。</p>
+          <h3>参赛主题</h3>
+          <p>围绕“治沙精神”、“生态美景”、“乡村振兴”三大主题进行创作。风格不限，Vlog、纪录片、剧情片均可。</p>
+          <h3>奖项设置</h3>
+          <p>一等奖（1名）：奖金 10000 元 + 证书<br/>二等奖（3名）：奖金 5000 元 + 证书<br/>三等奖（10名）：彰武特产大礼包</p>
+        `
+      }
     ]
+
   };
