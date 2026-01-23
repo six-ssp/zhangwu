@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { database } from '../data';
 import { ArrowLeftOutlined, ShoppingCartOutlined, CodeOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
+import ServiceEconomy from '../components/ServiceEconomy';
 import SilicaIndustry from '../components/SilicaIndustry';
 
 const IndustryDetail = () => {
@@ -56,7 +57,60 @@ const IndustryDetail = () => {
       </div>
     );
   }
-
+  // === 特殊逻辑 2：如果是【第三产业】，进入 现代服务业 杂志模式 ===
+  if (id === 'tertiary') {
+   return (
+     <div className="min-h-screen bg-slate-50 relative flex flex-col font-sans">
+        {/* 顶部简易导航 */}
+        <div className="absolute top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center">
+           <button 
+              onClick={() => navigate('/industry')}
+              className="text-slate-500 hover:text-slate-900 flex items-center gap-2 transition-colors bg-white/50 backdrop-blur-md px-4 py-2 rounded-full shadow-sm"
+           >
+              <ArrowLeftOutlined /> 返回产业全览
+           </button>
+           <div className="hidden md:block text-slate-400 text-xs font-bold uppercase tracking-widest">
+              Integrated Development
+           </div>
+        </div>
+        
+        {/* 渲染服务业组件 */}
+        <ServiceEconomy data={item} />
+        
+        {/* 底部还是可以放商品推荐的，如果有的话 */}
+        {item.products && (
+           <div className="bg-white py-16 px-6 border-t border-gray-100">
+              <div className="max-w-6xl mx-auto">
+                  <div className="flex items-center gap-3 mb-8">
+                     <div className="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
+                        <ShoppingCartOutlined />
+                     </div>
+                     <div>
+                        <h2 className="text-2xl font-bold text-slate-900">特色体验 & 产品</h2>
+                     </div>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                     {item.products.map((product, idx) => (
+                        <div key={idx} className="group bg-white rounded-xl border border-gray-100 hover:shadow-lg transition-all overflow-hidden">
+                           <div className="h-40 overflow-hidden relative">
+                              <img src={product.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform" alt={product.name}/>
+                           </div>
+                           <div className="p-4">
+                              <h3 className="font-bold text-slate-800 mb-1">{product.name}</h3>
+                              <div className="flex justify-between items-center mt-3">
+                                 <span className="text-red-600 font-bold">{product.price}</span>
+                                 <button className="text-xs bg-slate-900 text-white px-3 py-1.5 rounded-full">查看</button>
+                              </div>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+              </div>
+           </div>
+        )}
+     </div>
+   );
+ }
   // === 常规逻辑 (保持不变) ===
   const colorMap = {
     green: "text-green-700 bg-green-50 border-green-200",

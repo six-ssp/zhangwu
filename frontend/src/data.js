@@ -187,24 +187,48 @@ export const database = {
         ]
       },
       {
-        id: "tertiary", // 第三产业
+        id: "tertiary",
         title: "绿水青山 · 全域旅游",
-        subtitle: "Ecological Tourism",
+        subtitle: "Modern Service & Tourism",
         summary: "漠上草原，康养胜地，体验治沙精神之旅。",
         img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000",
         color: "orange",
-        content: `
-          <p>随着生态环境的改善，彰武县将治沙成果转化为旅游资源，大力发展全域旅游。</p>
-          <h3>漠上草原</h3>
-          <p>在昔日的流动沙丘上，如今生长着茂盛的草场。游客在这里可以体验骑马、射箭、住蒙古包的草原风情。</p>
-          <h3>红色研学</h3>
-          <p>以章古台林场为核心，打造了多条红色研学路线，让游客在游览中感悟“大漠孤烟”变“绿洲新生”的治沙精神。</p>
-        `,
+        // content: ... (之前的 content 可以留着作为兜底，或者直接忽略)
+        
+        // === 新增：第三产业的三个子板块数据 ===
+        sections: [
+          {
+            key: "ecommerce",
+            title: "云端经济 · 电商助农",
+            tag: "Live Streaming",
+            desc: "手机成为新农具，直播成为新农活。大力发展网红经济，打造“彰武地瓜”等国家地理标志农产品 IP，让好货飞出沙地。",
+            color: "from-orange-400 to-red-500",
+            items: ["网红直播基地", "彰武地瓜 IP", "无公害认证"]
+          },
+          {
+            key: "logistics",
+            title: "畅通血脉 · 智慧物流",
+            tag: "Smart Logistics",
+            desc: "打通农产品上行“最初一公里”和消费品下行“最后一公里”。实施“快递进村”工程，构建县乡村三级物流配送体系。",
+            color: "from-blue-400 to-cyan-500",
+            items: ["县级分拣中心", "冷链物流车", "村级服务站"]
+          },
+          {
+            key: "tourism",
+            title: "文旅融合 · 诗与远方",
+            tag: "Cultural Tourism",
+            desc: "依托治沙成果，大力发展乡村旅游。甜蜜蜜农家乐让你品尝地道农家菜，德力格尔自驾游营地带你驰骋漠上草原。",
+            color: "from-green-400 to-emerald-600",
+            items: ["甜蜜蜜农家乐", "德力格尔自驾", "漠上草原"]
+          }
+        ],
+        // 这里的 products 可以保留，作为详情页底部的商品展示
         products: [
-          { name: "草原景区门票", price: "¥40.0", img: "/caoyuanjingqu.jpg", link: "#" },
-          { name: "研学团预约", price: "咨询客服", img: "/yuyue.jpg", link: "#" }
+          { name: "草原景区门票", price: "¥40.0", img: "https://images.unsplash.com/photo-1533659828570-3692fb4749da?q=80&w=400", link: "#" },
+          { name: "研学团预约", price: "咨询客服", img: "https://images.unsplash.com/photo-1503220317375-aaad6143d41b?q=80&w=400", link: "#" },
+          { name: "彰武红薯礼盒", price: "¥58.0", img: "https://images.unsplash.com/photo-1574315042628-66299d91a92e?q=80&w=400", link: "#" }
         ]
-      }
+      },
     ],
   
     // === 3. 团队信息 (About板块) ===
