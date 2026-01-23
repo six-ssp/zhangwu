@@ -61,15 +61,20 @@ const IndustryDetail = () => {
   if (id === 'tertiary') {
    return (
      <div className="min-h-screen bg-slate-50 relative flex flex-col font-sans">
-        {/* 顶部简易导航 */}
-        <div className="absolute top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center">
+        
+        {/* === 修复点：调整位置和层级 === */}
+        {/* 1. top-24: 下移，避开全局 Navbar */}
+        {/* 2. pointer-events-none: 让这一行透明容器不挡鼠标，只有按钮能点 */}
+        <div className="absolute top-24 left-0 w-full z-40 px-6 flex justify-between items-center pointer-events-none">
            <button 
               onClick={() => navigate('/industry')}
-              className="text-slate-500 hover:text-slate-900 flex items-center gap-2 transition-colors bg-white/50 backdrop-blur-md px-4 py-2 rounded-full shadow-sm"
+              // pointer-events-auto: 恢复按钮点击
+              className="pointer-events-auto text-slate-600 hover:text-slate-900 flex items-center gap-2 transition-colors bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full shadow-sm border border-slate-200 hover:shadow-md"
            >
               <ArrowLeftOutlined /> 返回产业全览
            </button>
-           <div className="hidden md:block text-slate-400 text-xs font-bold uppercase tracking-widest">
+           
+           <div className="hidden md:block text-slate-400 text-xs font-bold uppercase tracking-widest bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
               Integrated Development
            </div>
         </div>
@@ -77,9 +82,9 @@ const IndustryDetail = () => {
         {/* 渲染服务业组件 */}
         <ServiceEconomy data={item} />
         
-        {/* 底部还是可以放商品推荐的，如果有的话 */}
+        {/* 底部商品推荐 (如果有) */}
         {item.products && (
-           <div className="bg-white py-16 px-6 border-t border-gray-100">
+           <div className="bg-white py-16 px-6 border-t border-gray-100 relative z-10">
               <div className="max-w-6xl mx-auto">
                   <div className="flex items-center gap-3 mb-8">
                      <div className="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
@@ -91,7 +96,7 @@ const IndustryDetail = () => {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                      {item.products.map((product, idx) => (
-                        <div key={idx} className="group bg-white rounded-xl border border-gray-100 hover:shadow-lg transition-all overflow-hidden">
+                        <div key={idx} className="group bg-white rounded-xl border border-gray-100 hover:shadow-lg transition-all overflow-hidden cursor-pointer">
                            <div className="h-40 overflow-hidden relative">
                               <img src={product.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform" alt={product.name}/>
                            </div>
@@ -99,7 +104,7 @@ const IndustryDetail = () => {
                               <h3 className="font-bold text-slate-800 mb-1">{product.name}</h3>
                               <div className="flex justify-between items-center mt-3">
                                  <span className="text-red-600 font-bold">{product.price}</span>
-                                 <button className="text-xs bg-slate-900 text-white px-3 py-1.5 rounded-full">查看</button>
+                                 <button className="text-xs bg-slate-900 text-white px-3 py-1.5 rounded-full hover:bg-green-600 transition-colors">查看</button>
                               </div>
                            </div>
                         </div>
