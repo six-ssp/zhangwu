@@ -14,49 +14,44 @@ const IndustryDetail = () => {
 
   if (!item) return <div className="pt-32 text-center">内容未找到</div>;
 
-  // === 特殊逻辑：如果是【硅砂工业】，进入 PPT 沉浸模式 (庄严科技版) ===
-  if (id === 'secondary') {
-    return (
-      <div className="h-screen w-full bg-[#0b0f19] overflow-hidden relative flex flex-col font-sans">
-         
-         {/* 1. 背景：深邃的科技蓝黑渐变 */}
-         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800 via-[#0f172a] to-black"></div>
-         
-         {/* 2. 装饰：精细的网格纹理 (增加科技感) */}
-         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
-              style={{ backgroundImage: `linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px)`, backgroundSize: '50px 50px' }}>
-         </div>
+// === 特殊逻辑 1：如果是【硅砂工业】，进入 PPT 沉浸模式 (庄严科技版) ===
+if (id === 'secondary') {
+   return (
+     <div className="h-screen w-full bg-[#0b0f19] overflow-hidden relative flex flex-col font-sans">
+        
+        {/* 1. 背景：深邃的科技蓝黑渐变 */}
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800 via-[#0f172a] to-black"></div>
+        
+        {/* 2. 装饰：精细的网格纹理 */}
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
+             style={{ backgroundImage: `linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px)`, backgroundSize: '50px 50px' }}>
+        </div>
 
-         {/* 3. 顶部导航 (Sticky Tech Style) */}
-         <div className="relative z-20 px-6 md:px-10 py-6 flex justify-between items-center border-b border-slate-800/50 bg-[#0f172a]/80 backdrop-blur-md">
-            <button 
-               onClick={() => navigate('/industry')}
-               className="text-slate-400 hover:text-cyan-400 flex items-center gap-3 transition-all group"
-            >
-               <div className="w-8 h-8 rounded border border-slate-600 group-hover:border-cyan-400 flex items-center justify-center">
-                  <ArrowLeftOutlined className="group-hover:-translate-x-1 transition-transform"/> 
-               </div>
-               <span className="text-sm font-bold tracking-widest uppercase">Index</span>
-            </button>
-            
-            <div className="text-right">
-               <h1 className="text-xl font-bold text-white tracking-[0.2em] uppercase mb-1 flex items-center justify-end gap-2">
-                 <CodeOutlined className="text-cyan-500"/> {item.title}
-               </h1>
-            </div>
-         </div>
+        {/* 3. 顶部导航 (极简版：去掉了右侧标题) */}
+        <div className="absolute top-28 left-0 w-full z-50 px-6 md:px-10 flex justify-start items-center pointer-events-none">
+           <button 
+              onClick={() => navigate('/industry')}
+              // 按钮开启点击
+              className="pointer-events-auto text-slate-300 hover:text-white flex items-center gap-2 transition-all bg-slate-800/50 backdrop-blur-md px-5 py-2.5 rounded-full shadow-lg border border-slate-700 hover:border-cyan-500 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] group"
+           >
+              <ArrowLeftOutlined className="group-hover:-translate-x-1 transition-transform"/> 
+              <span className="font-bold tracking-wide">返回产业全览</span>
+           </button>
+           
+           {/* 右侧原本的标题块已删除 */}
+        </div>
 
-         {/* 4. 核心交互区 (Flex 1 填满剩余高度) */}
-         <div className="relative z-10 flex-1 min-h-0 w-full"> 
-            {item.companies ? (
-               <SilicaIndustry companies={item.companies} />
-            ) : (
-               <div className="flex items-center justify-center h-full text-slate-500">NO DATA AVAILABLE</div>
-            )}
-         </div>
-      </div>
-    );
-  }
+        {/* 4. 核心交互区 */}
+        <div className="relative z-10 flex-1 min-h-0 w-full"> 
+           {item.companies ? (
+              <SilicaIndustry companies={item.companies} />
+           ) : (
+              <div className="flex items-center justify-center h-full text-slate-500">NO DATA AVAILABLE</div>
+           )}
+        </div>
+     </div>
+   );
+ }
   // === 特殊逻辑 2：如果是【第三产业】，进入 现代服务业 杂志模式 ===
   if (id === 'tertiary') {
    return (

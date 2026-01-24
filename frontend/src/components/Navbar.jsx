@@ -135,14 +135,14 @@ const Navbar = () => {
             关于我们
           </Link>
           
-          {/* EN 按钮 */}
+          {/* EN 按钮
           <div className={`ml-4 w-9 h-9 flex items-center justify-center rounded-full cursor-pointer transition-all ${
               isScrolled || !isHome 
                 ? 'bg-gray-100 text-gray-600 hover:bg-green-100 hover:text-green-600' 
                 : 'bg-white/20 text-white hover:bg-white hover:text-green-900 backdrop-blur-sm'
             }`}>
              <span className="font-serif font-bold text-xs">CN</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
