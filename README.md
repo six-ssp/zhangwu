@@ -44,24 +44,30 @@
 
 ```text
 src/
-├── 📂 components/          # 【公共组件层】(全站通用的UI模块)
+├──  components/          # 【公共组件层】(全站通用的UI模块)
 │   ├── Layout.jsx          # 布局容器：负责将 Navbar、Outlet、Footer 组合在一起
 │   ├── Navbar.jsx          # 顶部导航：含毛玻璃特效、滚动变色逻辑、下拉菜单跳转
+│   ├── ServiceEconomy.jsx         
+│   ├── ScrollToTop.jsx          
+│   ├── SilicaIndustry.jsx          
 │   └── Footer.jsx          # 底部页脚：含品牌信息、快速链接、订阅交互
 │
-├── 📂 pages/               # 【页面视图层】(各个路由对应的核心页面)
+├──  pages/               # 【页面视图层】(各个路由对应的核心页面)
 │   ├── Home.jsx            # 首页：含 Hero首屏、数据看板、各板块导流入口
 │   ├── Spirit.jsx          # 治沙精神页：含“历史时间轴”和“英雄轮播/分栏展示”
 │   ├── Industry.jsx        # 绿色产业页：含农/工/畜三列悬停卡片交互
 │   ├── Tours.jsx           # 研学路线页：核心交互地图，支持红点呼吸灯与点击跳转
 │   ├── TourDetail.jsx      # [动态] 景点详情页：展示景点大图、介绍及行程时间轴
+│   ├── Activity.jsx
+│   ├── ActivityDetail.jsx
+│   ├── IndustryDetail.jsx
 │   ├── PersonDetail.jsx    # [动态] 人物详情页：展示治沙英雄的详细事迹与语录
 │   └── About.jsx           # 关于我们页：展示团队 Slogan、项目背景及成员介绍
 │
-├── 📄 App.jsx              # 【总控中心】：配置所有路由路径，管理全站级开屏动画
-├── 📄 data.js              # 【数据中心】：模拟后端数据库，存储所有人物、景点、产业的 JSON 数据
-├── 📄 main.jsx             # 【入口文件】：React 应用挂载点，引入全局样式
-└── 📄 index.css            # 【全局样式】：Tailwind 指令引入及全局 CSS 重置
+├──  App.jsx              # 【总控中心】：配置所有路由路径，管理全站级开屏动画
+├──  data.js              # 【数据中心】：模拟后端数据库，存储所有人物、景点、产业的 JSON 数据
+├──  main.jsx             # 【入口文件】：React 应用挂载点，引入全局样式
+└──  index.css            # 【全局样式】：Tailwind 指令引入及全局 CSS 重置
 
 ```
 
@@ -121,3 +127,4 @@ src/
 4. **交互式地图 (Interactive Map)**:
 * 采用 **相对定位 (Percentage Positioning)** 技术。
 * 地图上的红点坐标使用百分比 (`left: 68%, top: 25%`)，确保在手机端和电脑端，红点永远固定在地图的正确位置，不会错位。
+
