@@ -21,10 +21,10 @@ const Footer = () => {
           {/* 1. 品牌与学校信息 */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <img src="/team-logo.jpg" className="w-12 h-12 rounded-full border-2 border-white/20" alt="Logo" />
+              <img src="./team-logo.jpg" className="w-12 h-12 rounded-full border-2 border-white/20" alt="Logo" />
               <div>
-                <h3 className="text-xl font-serif font-bold text-white tracking-wider">大连理工大学</h3>
-                <p className="text-xs text-slate-500 uppercase tracking-widest">Dalian University of Technology</p>
+                <h3 className="text-xl font-serif font-bold text-white tracking-wider">瀚海筑梦实践团</h3>
+                <p className="text-xs text-slate-500 uppercase tracking-widest">HanHai ZhuMeng Practice Team</p>
               </div>
             </div>
             <p className="text-sm text-slate-400 leading-loose max-w-sm">
