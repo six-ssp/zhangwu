@@ -14,8 +14,11 @@ import IndustryDetail from './pages/IndustryDetail';
 import Tours from './pages/Tours';
 import TourDetail from './pages/TourDetail';
 import About from './pages/About';
-import Activity from './pages/Activity'; 
-import ActivityDetail from './pages/ActivityDetail'; 
+import Activity from './pages/Activity';
+import ActivityDetail from './pages/ActivityDetail';
+import Grading from './pages/Grading';
+import Cooperatives from './pages/Cooperatives';
+import Cooperation from './pages/Cooperation';
 
 const PRELOADER_SPARKS = [
   { id: 1, left: '8%', top: '24%', size: 5, color: 'rgba(251,191,36,0.8)', dur: 3.6, delay: -1.8 },
@@ -183,6 +186,11 @@ function App() {
           <Route path="activity/study" element={<Tours />} />
           <Route path="activity/study/:id" element={<TourDetail />} />
           <Route path="activity/:id" element={<ActivityDetail />} />
+          <Route path="cooperation" element={<Cooperation />} />
+          <Route path="cooperation/grading" element={<Grading />} />
+          <Route path="cooperation/cooperatives" element={<Cooperatives />} />
+          <Route path="grading" element={<Grading />} />
+          <Route path="cooperatives" element={<Cooperatives />} />
           <Route path="about" element={<About />} />
           <Route path="*" element={<div className="pt-32 text-center text-xl">404 - 页面未找到</div>} />
         </Route>

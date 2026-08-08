@@ -67,11 +67,11 @@ const Navbar = () => {
         // 修改：直接跳转到第二产业详情页 (PPT模式)
         onClick: () => navigate('/industry/secondary') 
       },
-      { 
-        key: 'tertiary', 
-        label: ' 全域旅游', 
+      {
+        key: 'tertiary',
+        label: ' 全域旅游',
         // 修改：直接跳转到第三产业详情页
-        onClick: () => navigate('/industry/tertiary') 
+        onClick: () => navigate('/industry/tertiary')
       },
     ]
   };
@@ -81,6 +81,15 @@ const Navbar = () => {
       { key: 'tree', label: ' 一棵树活动', onClick: () => navigate('/activity/tree') },
       { key: 'show', label: ' 表演预约', onClick: () => navigate('/activity/show') },
       { key: 'video', label: ' 短视频大赛', onClick: () => navigate('/activity/video') },
+    ]
+  };
+  // 合作共创菜单
+  const cooperationMenu = {
+    items: [
+      { key: 'overview', label: '合作共创总览', onClick: () => navigate('/cooperation') },
+      { type: 'divider' },
+      { key: 'grading', label: '沙地地瓜品质分级', onClick: () => navigate('/cooperation/grading') },
+      { key: 'cooperatives', label: '合作合作社名录', onClick: () => navigate('/cooperation/cooperatives') },
     ]
   };
   // 辅助函数：判断高亮
@@ -137,11 +146,21 @@ const Navbar = () => {
           </Dropdown>
 
           <Dropdown menu={activityMenu} placement="bottom" arrow={{ pointAtCenter: true }}>
-             <button 
+             <button
                 className={`${linkClass} ${isActive('/activity')}`}
                 onClick={() => navigate('/activity')}
              >
                 彰武活动 <DownOutlined className="text-[10px] opacity-60 ml-1"/>
+             </button>
+          </Dropdown>
+
+          {/* 合作共创下拉菜单 */}
+          <Dropdown menu={cooperationMenu} placement="bottom" arrow={{ pointAtCenter: true }}>
+             <button
+                className={`${linkClass} ${isActive('/cooperation') || isActive('/grading') || isActive('/cooperatives') ? activeClass : ''}`}
+                onClick={() => navigate('/cooperation')}
+             >
+                合作共创 <DownOutlined className="text-[10px] opacity-60 ml-1"/>
              </button>
           </Dropdown>
 
@@ -212,6 +231,15 @@ const Navbar = () => {
               <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100" onClick={() => navigate('/activity/tree')}>一棵树活动</button>
               <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100" onClick={() => navigate('/activity/show')}>表演预约</button>
               <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-100" onClick={() => navigate('/activity/video')}>短视频大赛</button>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs uppercase tracking-wider text-slate-400 mb-2 px-1">合作共创</p>
+            <div className="space-y-2">
+              <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-green-50 hover:text-green-700" onClick={() => navigate('/cooperation')}>合作共创总览</button>
+              <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-green-50 hover:text-green-700" onClick={() => navigate('/cooperation/grading')}>沙地地瓜品质分级</button>
+              <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-green-50 hover:text-green-700" onClick={() => navigate('/cooperation/cooperatives')}>合作合作社名录</button>
             </div>
           </div>
         </div>
